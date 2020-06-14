@@ -1,0 +1,16 @@
+:host {
+  background-color: #30a8f3;
+  min-height: 4.8582995951417vh;
+  padding: 0.6578947368421053vh 7.291666666666667vw;
+  display: flex;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "targets": {
+    "turnos-7cdaa": {
+      "hosting": {
+        "turnos": [
+          "turnos-7cdaa"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "development": "turnosdev-17a40",
+    "production": "turnos-7cdaa"
+  }
+}

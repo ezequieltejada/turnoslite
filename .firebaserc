@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "turnos-7cdaa": {
+      "hosting": {
+        "turnos": [
+          "turnos-7cdaa"
+        ]
+      }
+    }
+  }
+}

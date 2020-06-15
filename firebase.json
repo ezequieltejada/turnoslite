@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "turnos",
+      "public": "dist/turnos",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

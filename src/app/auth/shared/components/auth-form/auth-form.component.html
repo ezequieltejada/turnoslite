@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <h1>
+    <ng-content select=".title"></ng-content>
+  </h1>
+  <label
+    ><input
+      type="text"
+      formControlName="username"
+      placeholder="Username | E-Mail"
+  /></label>
+  <label
+    ><input type="password" formControlName="password" placeholder="Password"
+  /></label>
+  <ng-content select=".submitButton"></ng-content>
+</form>

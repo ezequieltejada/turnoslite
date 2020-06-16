@@ -8,6 +8,7 @@ import { environment } from "../environments/environment";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NavComponent } from "./navigation/components/nav/nav.component";
 import { AuthModule } from "./auth/auth.module";
+import { AngularFireModule } from "@angular/fire";
 
 @NgModule({
   declarations: [AppComponent, NavComponent],
@@ -19,6 +20,7 @@ import { AuthModule } from "./auth/auth.module";
       enabled: environment.production,
     }),
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
 @NgModule({
   declarations: [AuthFormComponent],
@@ -15,6 +16,7 @@ import { MatButtonModule } from "@angular/material/button";
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    AngularFireAuthModule,
   ],
   exports: [AuthFormComponent, MatButtonModule],
 })

@@ -1,6 +1,7 @@
 :host {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: 5px;
 
   .auth-form__form {
     justify-self: center;

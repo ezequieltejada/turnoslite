@@ -1,0 +1,16 @@
+{
+  "hosting": [
+    {
+      "target": "turnos",
+      "public": "dist/turnos",
+      "predeploy": ["echo 'Going Prod!'", "ng build --prod"],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

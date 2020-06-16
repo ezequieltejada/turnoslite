@@ -6,6 +6,13 @@
           "turnos-7cdaa"
         ]
       }
+    },
+    "turnosdev-17a40": {
+      "hosting": {
+        "turnos": [
+          "turnosdev-17a40"
+        ]
+      }
     }
   },
   "projects": {

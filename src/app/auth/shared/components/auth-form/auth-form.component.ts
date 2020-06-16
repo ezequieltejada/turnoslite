@@ -10,7 +10,7 @@ export class AuthFormComponent implements OnInit {
   @Output() submitted = new EventEmitter<FormGroup>();
 
   form = this.fb.group({
-    username: [""],
+    email: [""],
     password: [""],
   });
 
@@ -19,6 +19,6 @@ export class AuthFormComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.submitted.emit(this.form.value);
+    this.submitted.emit(this.form);
   }
 }

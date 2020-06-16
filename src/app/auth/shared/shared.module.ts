@@ -3,11 +3,20 @@ import { CommonModule } from "@angular/common";
 import { AuthService } from "./services/auth/auth.service";
 import { AuthFormComponent } from "./components/auth-form/auth-form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   declarations: [AuthFormComponent],
-  imports: [CommonModule, ReactiveFormsModule],
-  exports: [AuthFormComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+  ],
+  exports: [AuthFormComponent, MatButtonModule],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

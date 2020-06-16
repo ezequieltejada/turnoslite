@@ -1,4 +1,13 @@
 <app-auth-form (submitted)="onSubmit($event)">
   <span class="title">Login</span>
-  <button type="submit" class="submitButton">Login</button>
+  <button type="submit" class="submitButton" mat-raised-button color="primary">
+    Login
+  </button>
+  <a
+    mat-button
+    [routerLink]="['/auth/register']"
+    routerLinkActive="router-link-active"
+    class="toggleRegisterLogin"
+    >New? Register</a
+  >
 </app-auth-form>

@@ -1,15 +1,32 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
-  <h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="auth-form__form">
+  <h1 class="mat-h1">
     <ng-content select=".title"></ng-content>
   </h1>
-  <label
-    ><input
+  <mat-form-field>
+    <mat-label>
+      Username
+    </mat-label>
+    <input
+      matInput
       type="text"
       formControlName="username"
       placeholder="Username | E-Mail"
-  /></label>
-  <label
-    ><input type="password" formControlName="password" placeholder="Password"
-  /></label>
-  <ng-content select=".submitButton"></ng-content>
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      type="password"
+      formControlName="password"
+      placeholder="Password"
+    />
+  </mat-form-field>
+  <div>
+    <ng-content select=".submitButton"></ng-content>
+  </div>
+  <div>
+    <ng-content select=".toggleRegisterLogin"></ng-content>
+  </div>
 </form>

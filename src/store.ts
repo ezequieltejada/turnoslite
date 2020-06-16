@@ -2,10 +2,13 @@ import { BehaviorSubject } from "rxjs";
 import { distinctUntilChanged, pluck } from "rxjs/operators";
 
 export interface State {
+  user: firebase.User;
   [key: string]: any;
 }
 
-const state: State = {};
+const state: State = {
+  user: null,
+};
 
 export class Store {
   private subject = new BehaviorSubject<State>(state);

@@ -3,7 +3,7 @@
     {
       "target": "turnos",
       "public": "dist/turnos",
-      "predeploy": ["echo 'Going Dev!'", "ng build"],
+      "predeploy": ["echo 'Going Prod!'", "ng build --prod"],
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {

@@ -1,2 +1,2 @@
-<app-nav></app-nav>
+<app-nav [user]="user$ | async" (logout)="onLogout()"></app-nav>
 <router-outlet></router-outlet>

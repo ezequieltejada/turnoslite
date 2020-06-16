@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NavComponent } from "./navigation/components/nav/nav.component";
 import { AuthModule } from "./auth/auth.module";
 import { AngularFireModule } from "@angular/fire";
+import { Store } from "store";
 
 @NgModule({
   declarations: [AppComponent, NavComponent],
@@ -22,7 +23,7 @@ import { AngularFireModule } from "@angular/fire";
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [],
+  providers: [Store],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

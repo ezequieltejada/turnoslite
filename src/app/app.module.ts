@@ -11,9 +11,10 @@ import { NavComponent } from "./components/nav/nav.component";
 import { AuthModule } from "../auth/auth.module";
 import { AppComponent } from "./containers/app/app.component";
 import { AppointmentsModule } from "../appointments/appointments.module";
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent],
+  declarations: [AppComponent, NavComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -7,6 +7,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AuthGuard } from "./guards/auth.guard";
 
 @NgModule({
   declarations: [AuthFormComponent],
@@ -24,7 +25,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [AuthService],
+      providers: [AuthService, AuthGuard],
     };
   }
 }

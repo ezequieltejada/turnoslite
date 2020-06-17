@@ -10,6 +10,7 @@ import { Store } from "store";
 import { NavComponent } from "./components/nav/nav.component";
 import { AuthModule } from "../auth/auth.module";
 import { AppComponent } from "./containers/app/app.component";
+import { AppointmentsModule } from "../appointments/appointments.module";
 
 @NgModule({
   declarations: [AppComponent, NavComponent],
@@ -22,6 +23,7 @@ import { AppComponent } from "./containers/app/app.component";
     }),
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AppointmentsModule,
   ],
   providers: [Store],
   bootstrap: [AppComponent],

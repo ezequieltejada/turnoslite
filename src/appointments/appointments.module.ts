@@ -1,19 +1,13 @@
-import { NgModule, ModuleWithProviders } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { AppointmentsRoutingModule } from "./appointments-routing.module";
-import { AppointmentsService } from "./shared/services/appointments/appointments.service";
-import { AppointmentsComponent } from './containers/appointments/appointments.component';
+import { AppointmentsComponent } from "./containers/appointments/appointments.component";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [AppointmentsComponent],
-  imports: [CommonModule, AppointmentsRoutingModule],
+  imports: [CommonModule, AppointmentsRoutingModule, SharedModule.forRoot()],
 })
 export class AppointmentsModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: AppointmentsModule,
-      providers: [AppointmentsService],
-    };
-  }
 }

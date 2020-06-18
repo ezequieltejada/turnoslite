@@ -11,7 +11,8 @@ import { NavComponent } from "./components/nav/nav.component";
 import { AuthModule } from "../auth/auth.module";
 import { AppComponent } from "./containers/app/app.component";
 import { AppointmentsModule } from "../appointments/appointments.module";
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from "./components/home/home.component";
+import { MAT_DATE_LOCALE } from "@angular/material/core";
 
 @NgModule({
   declarations: [AppComponent, NavComponent, HomeComponent],
@@ -26,7 +27,7 @@ import { HomeComponent } from './components/home/home.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AppointmentsModule,
   ],
-  providers: [Store],
+  providers: [Store, { provide: MAT_DATE_LOCALE, useValue: "en-GB" }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

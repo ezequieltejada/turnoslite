@@ -1,12 +1,15 @@
 import { BehaviorSubject } from "rxjs";
 import { distinctUntilChanged, pluck } from "rxjs/operators";
+import { Appointment } from "./appointments/shared/interfaces/appointment.interface";
 
 export interface State {
   user: firebase.User;
+  appointments: Appointment[];
   [key: string]: any;
 }
 
 const state: State = {
+  appointments: null,
   user: null,
 };
 

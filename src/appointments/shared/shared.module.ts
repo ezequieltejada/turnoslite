@@ -9,6 +9,8 @@ import { MatSelectModule } from "@angular/material/select";
 import { DatetimeAppointmentSelectorComponent } from "./components/datetime-appointment-selector/datetime-appointment-selector.component";
 import { MatOptionModule, MatNativeDateModule } from "@angular/material/core";
 import { MatDatepickerModule } from "@angular/material/datepicker";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -23,8 +25,10 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
     MatFormFieldModule,
     MatOptionModule,
     MatSelectModule,
+    MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    AngularFirestoreModule,
   ],
 })
 export class SharedModule {

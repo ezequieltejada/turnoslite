@@ -1,0 +1,13 @@
+<ng-content select="h1"></ng-content>
+<form [formGroup]="form" (submit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="Customer" formControlName="customer" />
+    <mat-error *ngIf="required">Customer's name is required.</mat-error>
+  </mat-form-field>
+  <datetime-selector formControlName="dateTime"></datetime-selector>
+  <mat-error *ngIf="notBeforeNow">Appointment cannot be before now.</mat-error>
+  <div class="actions">
+    <ng-content select=".submitBtn"></ng-content>
+    <button mat-button (click)="onCancel()">Cancel</button>
+  </div>
+</form>

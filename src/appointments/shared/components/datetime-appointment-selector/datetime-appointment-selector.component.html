@@ -1,0 +1,36 @@
+<mat-form-field>
+  <mat-label>Date</mat-label>
+  <input
+    matInput
+    [matDatepicker]="picker"
+    placeholder="Date"
+    [value]="value"
+    (dateChange)="selectDate($event)"
+  />
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<mat-form-field>
+  <mat-select
+    placeholder="hh"
+    name="hh"
+    [value]="selectedHour"
+    (selectionChange)="selectHour($event)"
+  >
+    <mat-option *ngFor="let hh of hours" [value]="hh">
+      {{ hh }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  <mat-select
+    placeholder="mm"
+    name="mm"
+    [value]="selectedMinute"
+    (selectionChange)="selectMinute($event)"
+  >
+    <mat-option *ngFor="let mm of minutes" [value]="mm">
+      {{ mm }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

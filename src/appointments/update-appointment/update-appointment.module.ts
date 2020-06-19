@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { UpdateAppointmentComponent } from "./components/update-appointment/update-appointment.component";
+import { UpdateAppointmentComponent } from "./containers/update-appointment/update-appointment.component";
 import { Routes, RouterModule } from "@angular/router";
 import { SharedModule } from "../shared/shared.module";
 import { MatButtonModule } from "@angular/material/button";

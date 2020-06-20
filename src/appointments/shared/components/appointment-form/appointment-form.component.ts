@@ -59,7 +59,7 @@ export class AppointmentFormComponent implements OnInit, OnChanges {
     if (this.appointment && this.appointment.id) {
       this.exists = true;
       const customer: string = this.appointment.customer;
-      const dateTime: Date = this.appointment.dateTime.toDate();
+      const dateTime: Date = this.appointment.dateTime;
       this.form.patchValue({ customer, dateTime });
     }
   }

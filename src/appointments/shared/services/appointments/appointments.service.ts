@@ -8,6 +8,7 @@ import { switchMap, tap, map, filter } from "rxjs/operators";
 import { Store } from "../../../../store";
 import { Appointment } from "../../interfaces/appointment.interface";
 import { Observable, of } from "rxjs";
+import { firestore } from "firebase";
 
 @Injectable()
 export class AppointmentsService {
@@ -26,7 +27,8 @@ export class AppointmentsService {
       }),
       map((actions) =>
         actions.map((a) => {
-          const data = a.payload.doc.data() as Appointment;
+          let data = a.payload.doc.data();
+          data.dateTime = data.dateTime.toDate();
           const id = a.payload.doc.id;
           return { id, ...data };
         })

@@ -1,0 +1,12 @@
+<div *ngIf="appointments$ | async as appointment; else loading">
+  <app-appointment-form
+    (create)="addAppointment($event)"
+    (update)="updateAppointment($event)"
+    (remove)="removeAppointment()"
+    [appointment]="appointment"
+  >
+  </app-appointment-form>
+</div>
+<ng-template #loading>
+  <span>Loading</span>
+</ng-template>

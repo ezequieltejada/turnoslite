@@ -4,9 +4,10 @@ import {
   AuthService,
   User,
 } from "../../../../auth/shared/services/auth/auth.service";
-import { switchMap, tap, map } from "rxjs/operators";
+import { switchMap, tap, map, filter } from "rxjs/operators";
 import { Store } from "../../../../store";
 import { Appointment } from "../../interfaces/appointment.interface";
+import { Observable, of } from "rxjs";
 
 @Injectable()
 export class AppointmentsService {
@@ -36,6 +37,18 @@ export class AppointmentsService {
     );
   }
 
+  getAppointment(id) {
+    if (!id) {
+      return of({});
+    }
+    return this.store.select("appointments").pipe(
+      filter(Boolean),
+      map((appointments: Array<any>) => {
+        return appointments.find((appointment) => appointment.id === id);
+      })
+    );
+  }
+
   getAppointments() {
     return this.store.select<Appointment[]>("appointments");
   }
@@ -50,5 +63,17 @@ export class AppointmentsService {
     return this.afFirestore
       .collection<Appointment>(`appointments/${user.uid}/appointments`)
       .add(appointment);
+  }
+
+  updateAppointment(payload) {
+    return this.afFirestore
+      .doc(`appointments/${payload.user.uid}/appointments/${payload.id}`)
+      .update(payload.data);
+  }
+
+  removeAppointment(payload) {
+    return this.afFirestore
+      .doc(`appointments/${payload.user.uid}/appointments/${payload.id}`)
+      .delete();
   }
 }

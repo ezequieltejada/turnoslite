@@ -4,14 +4,17 @@ import {
   ChangeDetectionStrategy,
   Output,
   EventEmitter,
+  Input,
+  SimpleChanges,
+  OnChanges,
 } from "@angular/core";
 import {
   FormBuilder,
   Validators,
   AbstractControl,
   ValidatorFn,
-  FormGroup,
 } from "@angular/forms";
+import { firestore } from "firebase";
 
 @Component({
   selector: "app-appointment-form",
@@ -19,17 +22,24 @@ import {
   styleUrls: ["./appointment-form.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppointmentFormComponent implements OnInit {
-  @Output() submitted = new EventEmitter<{
+export class AppointmentFormComponent implements OnInit, OnChanges {
+  @Output() create = new EventEmitter<{
     customer: string;
     dateTime: Date;
   }>();
-  @Output() cancelled = new EventEmitter<void>();
+  @Output() update = new EventEmitter<{
+    key: string;
+    customer: string;
+    dateTime: Date;
+  }>();
+  @Output() remove = new EventEmitter<void>();
+  @Input() appointment;
 
   form = this.fb.group({
     customer: ["", Validators.required],
     dateTime: [new Date(), [notBeforeNowValidator()]],
   });
+  exists: boolean;
 
   get required(): boolean {
     return (
@@ -45,22 +55,33 @@ export class AppointmentFormComponent implements OnInit {
     );
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.appointment && this.appointment.id) {
+      this.exists = true;
+      const customer: string = this.appointment.customer;
+      const dateTime: Date = this.appointment.dateTime.toDate();
+      this.form.patchValue({ customer, dateTime });
+    }
+  }
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
 
-  onSubmit() {
+  onCreate() {
     if (this.form.dirty && this.form.valid) {
-      this.submitted.emit(this.form.value);
+      this.create.emit(this.form.value);
     }
   }
 
-  onCancel() {
-    this.form.reset({
-      customer: "",
-      dateTime: new Date(),
-    });
-    this.cancelled.emit();
+  onUpdate() {
+    if (this.form.dirty && this.form.valid) {
+      this.update.emit(this.form.value);
+    }
+  }
+
+  onRemove() {
+    this.remove.emit();
   }
 }
 

@@ -11,13 +11,14 @@ import { MatOptionModule, MatNativeDateModule } from "@angular/material/core";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { MatButtonModule } from "@angular/material/button";
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
   declarations: [
     AppointmentFormComponent,
     DatetimeAppointmentSelectorComponent,
   ],
-  exports: [AppointmentFormComponent],
+  exports: [AppointmentFormComponent, MatTableModule, MatButtonModule],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -27,6 +28,7 @@ import { MatButtonModule } from "@angular/material/button";
     MatSelectModule,
     MatButtonModule,
     MatDatepickerModule,
+    MatTableModule,
     MatNativeDateModule,
     AngularFirestoreModule,
   ],

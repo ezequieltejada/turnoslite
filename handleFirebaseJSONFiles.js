@@ -26,5 +26,3 @@ function copyProdFirebaseJson() {
 function copyDevFirebaseJson() {
   fs.copySync(path.resolve(__dirname, "firebase.dev.json"), "firebase.json");
 }
-
-//fs.copySync(path.resolve(__dirname,'./init/xxx.json'), 'xxx.json');

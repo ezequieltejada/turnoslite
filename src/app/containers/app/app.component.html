@@ -1,2 +1,7 @@
 <app-nav [user]="user$ | async" (logout)="onLogout()"></app-nav>
+<mat-toolbar *ngIf="user$ | async">
+  <button mat-stroked-button color="primary" routerLink="/appointments">
+    Appointments
+  </button>
+</mat-toolbar>
 <router-outlet></router-outlet>

@@ -13,6 +13,8 @@ import { AppComponent } from "./containers/app/app.component";
 import { AppointmentsModule } from "../appointments/appointments.module";
 import { HomeComponent } from "./components/home/home.component";
 import { MAT_DATE_LOCALE } from "@angular/material/core";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   declarations: [AppComponent, NavComponent, HomeComponent],
@@ -26,6 +28,8 @@ import { MAT_DATE_LOCALE } from "@angular/material/core";
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AppointmentsModule,
+    MatToolbarModule,
+    MatButtonModule,
   ],
   providers: [Store, { provide: MAT_DATE_LOCALE, useValue: "en-GB" }],
   bootstrap: [AppComponent],

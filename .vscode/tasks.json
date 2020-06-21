@@ -9,6 +9,13 @@
       "problemMatcher": [],
       "label": "npm: start",
       "detail": "ng serve"
+    },
+    {
+      "type": "npm",
+      "script": "predeployDev",
+      "problemMatcher": [],
+      "label": "npm: predeployDev",
+      "detail": "node handleFirebaseJSONFiles.js dev && firebase deploy -P development"
     }
   ]
 }

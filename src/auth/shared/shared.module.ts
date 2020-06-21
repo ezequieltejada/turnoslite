@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AuthGuard } from "./guards/auth.guard";
 
@@ -15,11 +17,12 @@ import { AuthGuard } from "./guards/auth.guard";
     CommonModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatSnackBarModule,
     MatFormFieldModule,
     MatButtonModule,
     AngularFireAuthModule,
   ],
-  exports: [AuthFormComponent, MatButtonModule],
+  exports: [AuthFormComponent, MatButtonModule, MatSnackBarModule],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

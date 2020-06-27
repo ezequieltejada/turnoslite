@@ -7,8 +7,7 @@ import {
 import { switchMap, tap, map, filter } from "rxjs/operators";
 import { Store } from "../../../../store";
 import { Appointment } from "../../interfaces/appointment.interface";
-import { Observable, of } from "rxjs";
-import { firestore } from "firebase";
+import { of } from "rxjs";
 
 @Injectable()
 export class AppointmentsService {

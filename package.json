@@ -8,8 +8,8 @@
     "test": "ng test",
     "deployFirestoreRules:dev": "firebase use development && node handleFirebaseJSONFiles.js dev && firebase deploy --only firestore:rules",
     "deployFirestoreRules:prod": "firebase use production && node handleFirebaseJSONFiles.js prod && firebase deploy --only firestore:rules",
-    "predeployProd": "node handleFirebaseJSONFiles.js prod && firebase deploy -P production",
-    "predeployDev": "node handleFirebaseJSONFiles.js dev && firebase deploy -P development",
+    "predeployProd": "firebase use production && node handleFirebaseJSONFiles.js prod && firebase deploy -P production",
+    "predeployDev": "firebase use development && node handleFirebaseJSONFiles.js dev && firebase deploy -P development",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

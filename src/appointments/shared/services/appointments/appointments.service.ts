@@ -19,6 +19,7 @@ export class AppointmentsService {
 
   get appointments$() {
     return this.authService.user$.pipe(
+      filter((user) => !!user === true),
       switchMap((user: firebase.User) => {
         return this.afFirestore
           .collection<Appointment>(`appointments/${user.uid}/appointments`)

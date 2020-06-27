@@ -2,6 +2,12 @@ var fs = require("fs-extra");
 var path = require("path");
 
 const validOptions = ["pro", "dev", "production", "development"];
+const files = [
+  ".firebaserc",
+  "firebase.json",
+  "firestore.rules",
+  "firestore.indexes.json",
+];
 
 const matchesBetweenEnvsAndValidOptions = process.argv.reduce(
   (acc, current) => {
@@ -12,17 +18,16 @@ const matchesBetweenEnvsAndValidOptions = process.argv.reduce(
 );
 
 if (matchesBetweenEnvsAndValidOptions === "pro") {
-  copyProdFirebaseJson();
+  copyFirebaseFiles("production");
 } else if (matchesBetweenEnvsAndValidOptions === "dev") {
-  copyDevFirebaseJson();
+  copyFirebaseFiles("development");
 } else {
   console.error("Error: Invalid Argument");
   return new Error("Invalid Argument");
 }
 
-function copyProdFirebaseJson() {
-  fs.copySync(path.resolve(__dirname, "firebase.prod.json"), "firebase.json");
-}
-function copyDevFirebaseJson() {
-  fs.copySync(path.resolve(__dirname, "firebase.dev.json"), "firebase.json");
+function copyFirebaseFiles(folder) {
+  for (const file of files) {
+    fs.copySync(path.resolve(__dirname, "firebaseEnvs", folder, file), file);
+  }
 }

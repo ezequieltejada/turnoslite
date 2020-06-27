@@ -18,6 +18,6 @@
   "projects": {
     "development": "turnosdev-17a40",
     "production": "turnos-7cdaa",
-    "default": "turnosdev-17a40"
+    "default": "turnos-7cdaa"
   }
 }

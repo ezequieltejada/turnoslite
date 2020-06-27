@@ -6,5 +6,6 @@ declare global {
 
 export interface Appointment {
   customer: string;
+  email?: string;
   dateTime: Date;
 }

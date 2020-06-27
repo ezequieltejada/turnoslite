@@ -25,11 +25,13 @@ import { firestore } from "firebase";
 export class AppointmentFormComponent implements OnInit, OnChanges {
   @Output() create = new EventEmitter<{
     customer: string;
+    email?: string;
     dateTime: Date;
   }>();
   @Output() update = new EventEmitter<{
     key: string;
     customer: string;
+    email?: string;
     dateTime: Date;
   }>();
   @Output() remove = new EventEmitter<void>();
@@ -37,6 +39,7 @@ export class AppointmentFormComponent implements OnInit, OnChanges {
 
   form = this.fb.group({
     customer: ["", Validators.required],
+    email: ["", Validators.email],
     dateTime: [new Date(), [notBeforeNowValidator()]],
   });
   exists: boolean;
@@ -45,6 +48,12 @@ export class AppointmentFormComponent implements OnInit, OnChanges {
     return (
       this.form.get("customer").touched &&
       this.form.get("customer").value === ""
+    );
+  }
+
+  get emailFormat(): boolean {
+    return (
+      this.form.get("email").touched && this.form.get("email").hasError("email")
     );
   }
 
@@ -59,8 +68,9 @@ export class AppointmentFormComponent implements OnInit, OnChanges {
     if (this.appointment && this.appointment.id) {
       this.exists = true;
       const customer: string = this.appointment.customer;
+      const email: string = this.appointment.email;
       const dateTime: Date = this.appointment.dateTime;
-      this.form.patchValue({ customer, dateTime });
+      this.form.patchValue({ customer, dateTime, email });
     }
   }
 
@@ -82,6 +92,17 @@ export class AppointmentFormComponent implements OnInit, OnChanges {
 
   onRemove() {
     this.remove.emit();
+  }
+
+  public findInvalidControls() {
+    const invalid = [];
+    const controls = this.form.controls;
+    for (const name in controls) {
+      if (controls[name].invalid) {
+        invalid.push(name);
+      }
+    }
+    return invalid;
   }
 }
 

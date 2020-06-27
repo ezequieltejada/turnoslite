@@ -4,6 +4,12 @@
     <input matInput placeholder="Customer" formControlName="customer" />
     <mat-error *ngIf="required">Customer's name is required.</mat-error>
   </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="E-Mail" formControlName="email" />
+    <mat-error *ngIf="emailFormat"
+      >Please format your E-Mail accordingly.</mat-error
+    >
+  </mat-form-field>
   <datetime-selector formControlName="dateTime"></datetime-selector>
   <mat-error *ngIf="notBeforeNow">Appointment cannot be before now.</mat-error>
   <div class="actions">

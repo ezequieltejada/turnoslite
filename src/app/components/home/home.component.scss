@@ -1,0 +1,43 @@
+section {
+  width: 90%;
+  margin: 20px auto 0px;
+  padding: 2rem 0px;
+  & > .mat-headline {
+    margin: 1rem 0px;
+    display: block;
+    text-align: center;
+  }
+  & > .mat-subheading-2 {
+    line-height: 1.6rem;
+    text-align: center;
+  }
+}
+.hero {
+  & h1 {
+    text-align: center;
+  }
+  & h2 {
+    text-align: center;
+  }
+}
+img {
+  width: 100vw;
+}
+
+section.penAndPaper {
+  width: 100%;
+  background-image: url("assets/home/oldPaper.jpg");
+  padding: 1rem;
+  box-sizing: border-box;
+  background-position: center;
+  background-size: cover;
+}
+section.cloudBenefit {
+  margin: 0 0;
+  background-image: url("assets/home/clouds.jpg");
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-position: center;
+  background-size: cover;
+}
